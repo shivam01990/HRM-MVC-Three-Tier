@@ -1,0 +1,11 @@
+D:\Projects\HRM\HRMBLL\obj\Debug\HRMBLL.csprojResolveAssemblyReference.cache
+D:\Projects\HRM\HRMBLL\bin\Debug\HRMBLL.dll
+D:\Projects\HRM\HRMBLL\bin\Debug\HRMBLL.pdb
+D:\Projects\HRM\HRMBLL\bin\Debug\HRMDAL.dll
+D:\Projects\HRM\HRMBLL\bin\Debug\EntityFramework.dll
+D:\Projects\HRM\HRMBLL\bin\Debug\HRMDAL.pdb
+D:\Projects\HRM\HRMBLL\bin\Debug\EntityFramework.xml
+D:\Projects\HRM\HRMBLL\obj\Debug\HRMBLL.dll
+D:\Projects\HRM\HRMBLL\obj\Debug\HRMBLL.pdb
+D:\Projects\HRM\HRMBLL\bin\Debug\HRMEntity.dll
+D:\Projects\HRM\HRMBLL\bin\Debug\HRMEntity.pdb

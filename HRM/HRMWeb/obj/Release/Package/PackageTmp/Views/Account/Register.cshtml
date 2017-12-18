@@ -1,0 +1,278 @@
+﻿@model HRMWeb.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Manage Employee";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">@ViewBag.Title</h1>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Add new Employee
+    </div>
+
+    <br />
+    @Html.Partial("_AlertsPartial")
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @*@Html.ValidationSummary()*@
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.UserName)</div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.Name)</div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.Password)</div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.ConfirmPassword)</div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.Email)</div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.PersonalEmail, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.PersonalEmail, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.PersonalEmail)</div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ContactNo, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.ContactNo, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.ContactNo)</div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextAreaFor(m => m.Address, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.Address)</div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.DOB, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.DOB, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.DOB)</div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.DOJ, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.DOJ, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.DOJ)</div>
+        </div>
+
+
+        @Html.HiddenFor(m => m.DOR)
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.DesignationId, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.DesignationId, new SelectList(ViewBag.Designations, "DesignationId", "DesignationName"), new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.DesignationId)</div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Salary, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Salary, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.Salary)</div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Role, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.Role, (List<SelectListItem>)ViewBag.Roles, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.Role)</div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ManagerId, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.ManagerId, new SelectList(ViewBag.Manager, "UserId", "Name"), new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.Status)</div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Status, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.Status, new[]{
+                 new SelectListItem{ Value="true",Text="Enabled"},
+                  new SelectListItem{ Value="false",Text="Disabled"}
+             }, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.Status)</div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Image, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                <input type="file" name="file" id="fileToUpload" onchange="showimagepreview(this)" class="filestyle" data-buttonname="btn-primary">
+            </div>
+            <div class="col-md-4"><span class="field-validation-error" id="spanfile"></span></div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Image Preview", new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                <img id="imgprvw" src="/Images/UserDefault.png" width="100" />
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="btnSubmit" class="btn btn-default" value="Register" />
+            </div>
+        </div>
+    }
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/bootstrap-filestyle.min.js")
+    @Scripts.Render("~/Scripts/jquery-migrate-1.2.1.js")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            InitializeDate();
+        });
+
+        function InitializeDate() {
+            $('#DOB').datepicker();
+            $('#DOJ').datepicker();
+        }
+
+        //get file size
+        function GetFileSize(fileid) {
+            try {
+                var fileSize = 0;
+                //for IE
+                if ($.browser.msie) {
+                    //before making an object of ActiveXObject,
+                    //please make sure ActiveX is enabled in your IE browser
+                    var objFSO = new ActiveXObject("Scripting.FileSystemObject"); var filePath = $("#" + fileid)[0].value;
+                    var objFile = objFSO.getFile(filePath);
+                    var fileSize = objFile.size; //size in kb
+                    fileSize = fileSize / 1048576; //size in mb
+                }
+                    //for FF, Safari, Opeara and Others
+                else {
+                    fileSize = $("#" + fileid)[0].files[0].size //size in kb
+                    fileSize = fileSize / 1048576; //size in mb
+                }
+                return fileSize;
+            }
+            catch (e) {
+                alert("Error is :" + e);
+            }
+        }
+
+        //get file path from client system
+        function getNameFromPath(strFilepath) {
+            var objRE = new RegExp(/([^\/\\]+)$/);
+            var strName = objRE.exec(strFilepath);
+            if (strName == null) {
+                return null;
+            }
+            else {
+                return strName[0];
+            }
+        }
+
+
+        function checkfile() {
+            var file = getNameFromPath($("#fileToUpload").val());
+            if (file != null) {
+                var extension = file.substr((file.lastIndexOf('.') + 1));
+                // alert(extension);
+                switch (extension) {
+                    case 'jpg':
+                    case 'JPG':
+                    case 'png':
+                    case 'PNG':
+                    case 'gif':
+                    case 'GIF':
+                        flag = true;
+                        break;
+                    default:
+                        flag = false;
+                }
+            }
+            if (flag == false) {
+                $("#spanfile").text("You can upload only jpg,png,gif extension file");
+                return false;
+            }
+            else {
+                var size = GetFileSize('fileToUpload');
+                if (size > 3) {
+                    $("#spanfile").text("You can upload file up to 3 MB");
+                    return false;
+                }
+                else {
+                    $("#spanfile").text("");
+                }
+            }
+            return flag;
+        }
+
+
+        function showimagepreview(input) {
+            //debugger;
+            var rType = checkfile();
+            if (rType == true) {
+                if (input.files && input.files[0]) {
+                    var filerdr = new FileReader();
+                    filerdr.onload = function (e) {
+                        $('#imgprvw').attr('src', e.target.result);
+                    }
+                    filerdr.readAsDataURL(input.files[0]);
+                }
+            }
+            else {
+                $(":file").filestyle('clear');
+            }
+            return rType;
+        }
+    </script>
+}

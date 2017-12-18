@@ -1,0 +1,4 @@
+D:\Projects\HRM\HRMEntity\bin\Debug\HRMEntity.dll
+D:\Projects\HRM\HRMEntity\bin\Debug\HRMEntity.pdb
+D:\Projects\HRM\HRMEntity\obj\Debug\HRMEntity.dll
+D:\Projects\HRM\HRMEntity\obj\Debug\HRMEntity.pdb

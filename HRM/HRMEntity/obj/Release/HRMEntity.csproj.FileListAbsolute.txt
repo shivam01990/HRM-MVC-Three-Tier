@@ -1,0 +1,5 @@
+D:\Projects\HRM\HRMEntity\bin\Release\HRMEntity.dll
+D:\Projects\HRM\HRMEntity\bin\Release\HRMEntity.pdb
+D:\Projects\HRM\HRMEntity\obj\Release\HRMEntity.csprojResolveAssemblyReference.cache
+D:\Projects\HRM\HRMEntity\obj\Release\HRMEntity.dll
+D:\Projects\HRM\HRMEntity\obj\Release\HRMEntity.pdb

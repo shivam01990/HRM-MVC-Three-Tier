@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f5dca250de69403296e464e2a07084af" Name="Diagram1">
+        <EntityTypeShape EntityType="HRMModel.Attendance" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.Designation" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.LeaveDuration" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.LeaveRequest" Width="1.5" PointX="8.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.LeaveStatusType" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.LeaveType" Width="1.5" PointX="6" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.User" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="HRMModel.FK_Attendance_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Users_Designation" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_LeaveRequest_LeaveDuration" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_LeaveRequest_LeaveStatusType" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_LeaveRequest_LeaveType" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_LeaveRequest_Users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HRMModel.Announcement" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HRMModel.Holiday" Width="1.5" PointX="8.25" PointY="8.375" />
+        <AssociationConnector Association="HRMModel.FK_Holiday_LeaveDuration" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

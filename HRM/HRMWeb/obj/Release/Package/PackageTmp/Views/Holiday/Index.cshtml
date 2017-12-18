@@ -1,0 +1,101 @@
+﻿@using HRMWeb.Helpers
+@model IEnumerable<HRMEntity.HolidayEntity>
+@{
+    ViewBag.Title = "Manage Holidays";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">@ViewBag.Title</h1>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Show All Holidays
+    </div>
+    <br />
+    @Html.Partial("_AlertsPartial")
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="dataTable_wrapper">
+            <table class="table table-striped table-bordered table-hover" id="tblHolidays">
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Occasion Name</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Total Days</th>
+                        <th>Leave Duration</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="odd gradeX">
+                            <td>@Html.CheckBox("chk_" + item.HolidayId, new { @class = "call-checkbox" })</td>
+                            <td>@Html.DisplayFor(modelItem => item.HolidayName)</td>
+                            <td>
+                                @item.StartDate.ToString("MM/dd/yyyy")
+                            </td>
+                            <td>@item.EndDate.ToString("MM/dd/yyyy")</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TotalDays)
+                            </td>
+                            <td>@Html.DisplayFor(modelItem => item.DurationType)</td>
+                            <td>
+                                @Html.ActionLink("Edit", "EditHoliday", new { id = item.HolidayId })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @using (Html.BeginForm("DeleteHoliday", "Holiday", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("hdnHolidayIds")
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-primary" onclick="javascript: return GetHolidayIds();" value="Delete" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        var tblHolidays;
+        $(document).ready(function () {
+            tblHolidays = $('#tblHolidays').DataTable({
+                responsive: true
+            });
+        });
+
+        function GetHolidayIds() {          
+            var ParseString = "";
+            var rowcollectionCheckbox = tblHolidays.$(".call-checkbox:checked", { "page": "all" });
+            rowcollectionCheckbox.each(function (index, elem) {
+                //Handle Checkbox Value
+                var HolidayId = this.id.replace("chk_", "");
+
+                //alert("Request ID:" + RequestId + " LeaveStatus ID:" + LeaveStatusId);
+                ParseString += "(" + HolidayId + "),";
+            });
+            debugger;
+            ParseString = ParseString.replace(/,\s*$/, "");
+            if (ParseString != "") {
+                $('#hdnHolidayIds').val(ParseString);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
+}

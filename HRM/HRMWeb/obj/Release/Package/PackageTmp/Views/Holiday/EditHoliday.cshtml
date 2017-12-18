@@ -1,0 +1,96 @@
+﻿@model HRMWeb.Models.HolidayModel
+@{
+    ViewBag.Title = "Manage Holidays";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">@ViewBag.Title</h1>
+    </div>
+</div>
+
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Edit Holiday
+    </div>
+    <br />
+    @Html.Partial("_AlertsPartial")
+
+    @using (Html.BeginForm("EditHoliday", "Holiday", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(m => m.HolidayId)
+        <div class="form-group">
+            @Html.LabelFor(m => m.HolidayName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.HolidayName, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.HolidayName)</div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.StartDate, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.StartDate, new { @Value = Model.StartDate == null ? string.Empty : ((DateTime)Model.StartDate).ToString("MM/dd/yyyy"), @class = "form-control", onchange = "checkdates();" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.StartDate)</div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.EndDate, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.EndDate, new { @Value = Model.EndDate == null ? string.Empty : ((DateTime)Model.EndDate).ToString("MM/dd/yyyy"), @class = "form-control", onchange = "checkdates();" })
+            </div>
+            <div class="col-md-4">@Html.ValidationMessageFor(m => m.EndDate)</div>
+        </div>
+
+        <div id="pnltime" style="display: none;">
+            <div class="form-group">
+                @Html.LabelFor(m => m.LeaveDurationId, new { @class = "col-md-2 control-label" })
+                <div class="col-md-4">
+                    @Html.DropDownListFor(m => m.LeaveDurationId, new SelectList(ViewBag.LeaveDuration, "DurationId", "DurationType"), new { @class = "form-control" })
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Apply" />
+            </div>
+        </div>
+    }
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            InitializeDate();
+            checkdates();
+        });
+
+        function InitializeDate() {
+            $('#StartDate').datepicker();
+            $('#EndDate').datepicker();
+        }
+
+        function checkdates() {
+            var fromDate = $('#StartDate').val();
+            var todate = $('#EndDate').val();
+            if ((fromDate == todate) && (fromDate != "") && (todate != "")) {
+                $('#pnltime').css("display", "block");
+            }
+            else {
+                $('#pnltime').css("display", "none");
+            }
+        }
+
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,12 @@
+D:\Projects\HRM\HRMDAL\bin\Release\HRMDAL.dll.config
+D:\Projects\HRM\HRMDAL\bin\Release\HRMDAL.dll
+D:\Projects\HRM\HRMDAL\bin\Release\HRMDAL.pdb
+D:\Projects\HRM\HRMDAL\bin\Release\EntityFramework.dll
+D:\Projects\HRM\HRMDAL\bin\Release\EntityFramework.SqlServer.dll
+D:\Projects\HRM\HRMDAL\bin\Release\HRMEntity.dll
+D:\Projects\HRM\HRMDAL\bin\Release\HRMEntity.pdb
+D:\Projects\HRM\HRMDAL\bin\Release\EntityFramework.xml
+D:\Projects\HRM\HRMDAL\bin\Release\EntityFramework.SqlServer.xml
+D:\Projects\HRM\HRMDAL\obj\Release\HRMDAL.csprojResolveAssemblyReference.cache
+D:\Projects\HRM\HRMDAL\obj\Release\HRMDAL.dll
+D:\Projects\HRM\HRMDAL\obj\Release\HRMDAL.pdb

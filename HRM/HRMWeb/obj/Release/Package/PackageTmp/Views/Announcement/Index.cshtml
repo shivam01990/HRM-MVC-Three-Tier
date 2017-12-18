@@ -1,0 +1,38 @@
+﻿@model HRMWeb.Models.AnnouncementModel
+@{
+    ViewBag.Title = "Announcement";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">@ViewBag.Title</h1>
+    </div>
+</div>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Announcement
+    </div>
+    <br />
+    @Html.Partial("_AlertsPartial")
+    @using (Html.BeginForm("Create", "Announcement", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.LabelFor(m => m.AnnouncementText, new { @class = "col-md-2 control-label" })
+            <div class="col-md-6">
+                @Html.TextAreaFor(m => m.AnnouncementText, new { @class = "form-control", rows = "6", cols = "20" })
+                <p class="help-block">Split text by new line. </p>
+            </div>
+            <div class="col-md-2">@Html.ValidationMessageFor(m => m.AnnouncementText)</div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Save" />
+            </div>
+        </div>
+    }
+</div>
